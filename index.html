@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đại đoàn kết toàn dân tộc – Tư tưởng Hồ Chí Minh</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#b3121b;--red2:#6d0a14;--gold:#f2c230;--paper:#f6ecd2;--ink:#2a1508;--bg:#2b0a0c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#e8dab3;--bg:#1a0506}}
+:root[data-theme="dark"]{--paper:#e8dab3;--bg:#1a0506}
+*{box-sizing:border-box;margin:0}html,body{height:100%}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow:hidden}
+h1,h2,h3,.f{font-family:'Playfair Display',Georgia,serif}
+#app{height:100%;display:flex;flex-direction:column;gap:.5rem;padding:.5rem}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:.5rem;color:var(--gold);font-family:'Playfair Display',Georgia,serif;font-weight:700}
+.bar small{font-family:'Be Vietnam Pro',sans-serif;opacity:.8;font-weight:400}
+button{font:inherit;cursor:pointer;border:2px solid var(--gold);background:var(--red);color:#fff6d8;padding:.45rem .9rem;border-radius:8px;font-weight:600;transition:.2s}
+button:hover{background:var(--gold);color:var(--red2)}button.on{background:var(--gold);color:var(--red2)}
+#stage{flex:1;position:relative;border:5px double var(--gold);background:radial-gradient(circle at 20% 10%,#fff8e0,transparent 60%),var(--paper);overflow:hidden;border-radius:6px;min-height:0}
+.slide{position:absolute;inset:0;padding:clamp(.8rem,2.5vw,2rem);opacity:0;pointer-events:none;transform:scale(.97);transition:.5s;overflow:auto}
+.slide.on{opacity:1;pointer-events:auto;transform:none}
+h2{color:var(--red);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.15;margin-bottom:.6rem;border-bottom:3px solid var(--gold);padding-bottom:.3rem}
+p,li{font-size:clamp(.9rem,1.7vw,1.2rem);line-height:1.55}
+.q{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--red2);border-left:5px solid var(--red);padding:.4rem .9rem;background:#fff4;margin:.6rem 0;font-size:clamp(1rem,2vw,1.5rem)}
+.pic{background:#efe0b8;border:3px solid var(--ink);padding:5px;box-shadow:4px 4px 0 #0004;text-align:center;transform:rotate(-1.5deg);max-width:220px}
+.pic:nth-of-type(2n){transform:rotate(1.5deg)}
+.pic svg{width:100%;aspect-ratio:1;display:block;color:var(--gold);background:radial-gradient(circle,#d9242f,#6d0a14);filter:sepia(.25)}
+.pic figcaption{font-size:.72rem;font-style:italic;padding-top:3px}
+.card{background:#fffa;border:2px solid var(--red);border-radius:10px;padding:.8rem 1rem}
+.card b{color:var(--red)}
+.num{display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--red);color:var(--gold);font-weight:900;margin-right:.4rem}
+/* layouts */
+.l1,.l7{display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 40%,#c8102e,var(--red2) 75%);color:#fff6d8}
+.l1 h1{font-size:clamp(1.8rem,5.5vw,4rem);color:var(--gold);text-shadow:3px 3px 0 #0006;line-height:1.1}
+.l1 p,.l7 p{color:#fff6d8}.l1 .pic,.l7 .pic{margin:.5rem auto;max-width:150px}
+.l2{display:grid;grid-template-columns:1.3fr 1fr;gap:1.2rem;align-content:start}
+.l2 .col{display:grid;gap:.8rem;align-content:start;justify-items:center}
+.l3{display:grid;grid-template-columns:1fr 200px 1fr;gap:1rem;align-items:center}
+.l4{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}.l4 h2,.l4 .pic{grid-column:1/-1}.l4 .pic{justify-self:center;max-width:130px}
+.l5 .tl{display:flex;gap:.3rem;margin:.6rem 0 1rem;overflow-x:auto;padding:.5rem 0;border-top:6px solid var(--red)}
+.tl div{flex:1;min-width:110px;text-align:center;font-size:.85rem}.tl b{display:block;font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--red)}
+.tl div:before{content:"★";display:block;color:var(--gold);font-size:1.6rem;margin-top:-1.55rem;text-shadow:0 0 0 var(--red2)}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.l6{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-content:start}.l6 h2{grid-column:1/-1}
+.arch{border:3px solid var(--red);border-radius:50% 50% 12px 12px/22% 22% 12px 12px;padding:2.2rem 1rem 1rem;background:#fff9;text-align:center;position:relative}
+.arch .pic{position:absolute;top:-1.5rem;left:50%;width:70px;transform:translateX(-50%)}
+.l7 h1{font-size:clamp(1.5rem,4.2vw,3rem);color:var(--gold);line-height:1.25;margin:.4rem 0}
+#cap{min-height:3.2rem;background:var(--red2);color:#ffe9a8;border:2px solid var(--gold);border-radius:8px;padding:.5rem .8rem;font-size:clamp(.85rem,1.6vw,1.05rem);display:flex;align-items:center}
+.ctl{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center}
+#dots{display:flex;gap:5px;align-items:center}#dots i{width:10px;height:10px;border-radius:50%;background:#fff4}#dots i.on{background:var(--gold)}
+/* bố cục & hiệu ứng */
+.l1,.l7{background:repeating-conic-gradient(from 0deg at 50% 45%,#ffffff14 0 5deg,transparent 5deg 10deg),radial-gradient(circle at 50% 45%,#c8102e,#6d0a14 80%)}
+.card{border-left:8px solid var(--red);box-shadow:4px 4px 0 #b3121b33}
+.l2,.l3,.l4,.l6{align-content:center}.l2 .col{align-self:center}.l2 .pic{max-width:190px}.l3 .pic{max-width:200px;transform-origin:50% 100%}
+.l5{display:flex;flex-direction:column;justify-content:center}
+.l4{grid-template-columns:150px 1fr 1fr}.l4 .pic{grid-column:1;grid-row:2/4;align-self:center;max-width:150px}
+.l7 .pic{max-width:110px}.l7 h1{margin:.8rem 0}
+@media(max-width:760px){.l4{grid-template-columns:1fr}.l4 .pic{grid-column:1;grid-row:auto}.l2,.l3,.l4,.l6{align-content:start}}
+@keyframes up{from{translate:0 50px;opacity:0}}
+@keyframes inl{from{translate:-90px 0;opacity:0}}
+@keyframes inr{from{translate:90px 0;opacity:0}}
+@keyframes zoom{from{scale:.5;opacity:0}}
+@keyframes drop{from{translate:0 -90px;rotate:-18deg;opacity:0}}
+@keyframes grow{from{scale:.2;opacity:0}}
+@keyframes rise{from{translate:0 140px;opacity:0}}
+@keyframes glow{to{text-shadow:0 0 28px #ffd54a,3px 3px 0 #0006}}
+@keyframes pulse{50%{scale:1.06}}
+.slide.on h1,.slide.on h2{animation:up .8s both}
+.slide.on .q{animation:inl .8s .3s both}
+.slide.on .card,.slide.on .tl>div{animation:up .7s both;animation-delay:calc(.3s + var(--i,0)*.14s)}
+.slide.on .pic{animation:drop .9s both;animation-delay:calc(.2s + var(--i,0)*.15s)}
+.l1.on h1{animation:zoom 1s both}.l1.on p{animation:up .8s .7s both}
+.l1.on .pic:first-child{animation:inl 1s .2s both}.l1.on .pic:last-child{animation:inr 1s .2s both}
+.l2.on .card{animation-name:inl}.l2.on .pic{animation-name:inr}
+.l3.on .card{animation-name:inl}.l3.on .pic+.card{animation-name:inr}.l3.on .pic{animation:grow 1.1s .3s both}
+.l4.on .card{animation-name:zoom}
+.l6.on .arch{animation:rise 1s both;animation-delay:calc(.3s + var(--i,0)*.25s)}.l6.on .arch .pic{animation:zoom .8s .9s both}
+.l7.on h1{animation:zoom 1s both,glow 2s 1s infinite alternate}.l7.on p{animation:up .8s .8s both}.l7.on .pic svg{animation:pulse 2s infinite}
+@media(prefers-reduced-motion:reduce){.slide.on *{animation:none!important}}
+/* quiz */
+#quiz{position:absolute;inset:0;background:radial-gradient(circle at 50% 0,#c8102e,var(--red2) 80%);color:#fff6d8;padding:clamp(.8rem,2.5vw,2rem);overflow:auto;display:none;z-index:5}
+#quiz.on{display:block}
+#quiz h2{color:var(--gold)}#quiz p,#quiz li{color:#fff6d8}
+.rules li{margin:.4rem 0 .4rem 1.2rem}
+.opt{display:block;width:100%;text-align:left;margin:.5rem 0;background:#fff3;border:2px solid var(--gold);color:#fff6d8;padding:.7rem 1rem}
+.opt.ok{background:#1b8a3a;border-color:#9bf5b3}.opt.no{background:#5b0a0f;border-color:#f77;opacity:.8}
+.qrow{display:grid;grid-template-columns:110px 1fr;gap:1rem;align-items:start}
+.qrow .pic{max-width:110px}
+#tm{height:10px;background:#0006;border-radius:5px;overflow:hidden;margin:.5rem 0}#tm i{display:block;height:100%;background:var(--gold);width:100%}
+.exp{margin-top:.8rem;background:#fff2;border-left:5px solid var(--gold);padding:.7rem 1rem;display:none}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:9}
+#stamp{position:fixed;inset:0;display:none;place-items:center;pointer-events:none;z-index:10;font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.2rem,9vw,6rem);text-align:center}
+#stamp.ok{display:grid;color:var(--gold);text-shadow:0 0 30px #ff0,3px 3px 0 #a00;animation:pop 1.6s forwards}
+#stamp.no{display:grid;color:#ff8a8a;text-shadow:0 0 20px #f00;animation:pop 1.3s forwards}
+@keyframes pop{0%{transform:scale(.2) rotate(-12deg);opacity:0}25%{transform:scale(1.15) rotate(3deg);opacity:1}70%{transform:scale(1);opacity:1}100%{transform:scale(1.2);opacity:0}}
+.shake{animation:sh .5s}@keyframes sh{20%,60%{transform:translateX(-12px)}40%,80%{transform:translateX(12px)}}
+.flash{animation:fl .8s}@keyframes fl{0%{box-shadow:inset 0 0 0 100vmax #f004}100%{box-shadow:none}}
+@media(max-width:760px){.l2,.l3,.l4,.l6,.tri{grid-template-columns:1fr}.l3 .pic{justify-self:center}.arch{margin-top:1.5rem}.qrow{grid-template-columns:1fr}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="star" viewBox="0 0 100 100"><polygon fill="currentColor" points="50,8 61,38 94,38 68,58 78,90 50,70 22,90 32,58 6,38 39,38"/></symbol>
+<symbol id="flag" viewBox="0 0 100 100"><rect x="4" y="20" width="92" height="60" fill="#c8102e" stroke="#ffcd00" stroke-width="2"/><polygon fill="#ffcd00" points="50,28 57,45 75,45 60,56 66,73 50,62 34,73 40,56 25,45 43,45"/></symbol>
+<symbol id="hand" viewBox="0 0 100 100"><g fill="currentColor"><rect x="14" y="32" width="12" height="46" rx="6"/><rect x="29" y="14" width="12" height="62" rx="6"/><rect x="44" y="8" width="12" height="66" rx="6"/><rect x="59" y="16" width="12" height="60" rx="6"/><rect x="74" y="36" width="12" height="40" rx="6"/><rect x="12" y="60" width="76" height="30" rx="14"/></g></symbol>
+<symbol id="tree" viewBox="0 0 100 100"><g fill="currentColor"><circle cx="50" cy="32" r="24"/><circle cx="28" cy="50" r="16"/><circle cx="72" cy="50" r="16"/><rect x="45" y="55" width="10" height="30"/><path d="M50 85 Q30 88 15 96 M50 85 Q70 88 85 96 M50 85 V97" stroke="currentColor" stroke-width="4" fill="none"/></g></symbol>
+<symbol id="crowd" viewBox="0 0 100 100"><g fill="currentColor"><circle cx="25" cy="38" r="9"/><circle cx="50" cy="30" r="10"/><circle cx="75" cy="38" r="9"/><rect x="14" y="50" width="22" height="36" rx="10"/><rect x="38" y="43" width="24" height="43" rx="11"/><rect x="64" y="50" width="22" height="36" rx="10"/></g></symbol>
+<symbol id="book" viewBox="0 0 100 100"><g fill="currentColor"><path d="M10 20 Q30 14 48 22 V84 Q30 76 10 82Z"/><path d="M90 20 Q70 14 52 22 V84 Q70 76 90 82Z"/></g></symbol>
+</defs></svg>
+<div id="app">
+<div class="bar"><span>★ Tư tưởng Hồ Chí Minh · Chương 5<br><small>Đại đoàn kết toàn dân tộc</small></span><span id="num"></span></div>
+<div id="stage"><div id="slides"></div>
+<div id="quiz"></div></div>
+<div id="cap">Nhấn “Nghe thuyết trình” để bắt đầu.</div>
+<div class="ctl"><button id="prev">◀ Trước</button><button id="play">🔊 Nghe thuyết trình</button><button id="auto">⏭ Tự chuyển: Tắt</button><button id="next">Sau ▶</button><span id="dots"></span></div>
+</div>
+<canvas id="fx"></canvas><div id="stamp"></div>
+<script>
+const P=(id,c,x='')=>`<figure class="pic ${x}"><svg viewBox="0 0 100 100"><use href="#${id}"/></svg><figcaption>${c}</figcaption></figure>`;
+const S=[
+{c:'l1',h:()=>`${P('flag','Cờ đỏ sao vàng')}<div><h1>ĐẠI ĐOÀN KẾT<br>TOÀN DÂN TỘC</h1><p class="f" style="font-size:1.3rem;margin:.6rem 0">Tư tưởng Hồ Chí Minh</p><p>Chương 5 · Phần I</p></div>${P('star','Ngôi sao vàng năm cánh')}`,
+n:`Kính chào thầy cô và các bạn! Hôm nay, chúng ta cùng tìm hiểu một trong những tư tưởng sáng ngời nhất của Chủ tịch Hồ Chí Minh: Đại đoàn kết toàn dân tộc. Hãy tưởng tượng một đất nước nhỏ bé, nghèo khó, bị ngoại bang đô hộ, vậy mà làm nên Cách mạng Tháng Tám và chiến thắng Điện Biên Phủ! Bí quyết nằm ở đâu? Chính là sức mạnh của lòng dân đoàn kết. Nào, xin mời cả lớp cùng bắt đầu hành trình này!`},
+{c:'l2',h:()=>`<div><h2>1. Vai trò của đại đoàn kết</h2><div class="q">“Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công.”</div><div class="card"><p><span class="num">1</span><b>Chiến lược lâu dài, nhất quán</b> của cách mạng, không phải sách lược nhất thời.</p></div><br><div class="card"><p><span class="num">2</span><b>Quyết định thành công</b> của cách mạng; <b>mục tiêu, nhiệm vụ hàng đầu</b> của Đảng.</p></div></div><div class="col">${P('crowd','Quần chúng nhân dân')}${P('star','Mục tiêu hàng đầu')}</div>`,
+n:`Trước hết, vai trò của đại đoàn kết. Bác Hồ khẳng định: đây là chiến lược lâu dài, nhất quán, chứ không phải mưu lược nhất thời. Người từng dạy: lúc nào dân ta đoàn kết muốn người như một thì nước ta độc lập, tự do. Trái lại, lúc nào dân ta không đoàn kết thì bị nước ngoài xâm lấn. Bằng chứng sống động là Cách mạng Tháng Tám năm một nghìn chín trăm bốn lăm: toàn dân đứng lên như một! Ngày ba tháng ba năm một nghìn chín trăm năm mươi mốt, khi Đảng Lao động Việt Nam ra mắt, Bác tuyên bố mục đích của Đảng gói trong tám chữ: Đoàn kết toàn dân, phụng sự Tổ quốc.`},
+{c:'l3',h:()=>`<div class="card"><h3 style="color:var(--red)">Chủ thể</h3><p>Toàn thể nhân dân: mọi giai cấp, tầng lớp, dân tộc, tôn giáo, lứa tuổi, trong và ngoài nước. “Ai có tài, có đức, có sức, có lòng phụng sự Tổ quốc thì ta đoàn kết với họ.”</p></div>${P('tree','Cây đại đoàn kết','')}<div class="card"><h3 style="color:var(--red)">Nền tảng</h3><p><b>Công nhân – nông dân – lao động trí thức</b>: đa số nhân dân lao động, là “gốc của cây”. Từ gốc vững mới đoàn kết thêm các tầng lớp khác.</p></div><h2 style="grid-column:1/-1;order:-1">2. Lực lượng khối đại đoàn kết</h2>`,
+n:`Vậy ai là lực lượng của khối đại đoàn kết? Bác trả lời rất rộng: tất cả những người Việt Nam yêu nước, không phân biệt giai cấp, dân tộc, tôn giáo hay tuổi tác. Hãy nhìn hình ảnh một cái cây. Gốc rễ của cây là công nhân, nông dân và lao động trí thức, những người đông đảo nhất, chịu áp bức nặng nề nhất. Có gốc vững, cây mới tỏa tán xanh tươi, thu hút thêm tiểu thương, nhà tư sản yêu nước, đồng bào có đạo. Chính vì thế, Mặt trận mới có thể quy tụ cả một dân tộc!`},
+{c:'l4',h:()=>`<h2>3. Bốn điều kiện xây dựng khối đại đoàn kết</h2>${P('hand','Năm ngón tay một bàn tay')}<div class="card"><b>① Lợi ích chung làm điểm quy tụ</b><p>Đồng thời tôn trọng khác biệt chính đáng: “cầu đồng tồn dị”.</p></div><div class="card"><b>② Kế thừa truyền thống</b><p>Yêu nước, nhân nghĩa, đoàn kết của dân tộc qua hàng ngàn năm.</p></div><div class="card"><b>③ Khoan dung, độ lượng</b><p>“Năm ngón tay cũng có ngón vắn ngón dài” – ai cũng có ưu điểm.</p></div><div class="card"><b>④ Tin vào nhân dân</b><p>“Nước lấy dân làm gốc”; có niềm tin thì mới thực hiện được đoàn kết.</p></div>`,
+n:`Muốn có khối đại đoàn kết thì cần bốn điều kiện. Một: lấy lợi ích chung làm điểm quy tụ, đồng thời tôn trọng những khác biệt chính đáng, giống như câu cầu đồng tồn dị. Hai: kế thừa truyền thống yêu nước, nhân nghĩa của ông cha. Ba: phải có lòng khoan dung, độ lượng. Bác ví rất hay: năm ngón tay cũng có ngón vắn, ngón dài, nhưng vắn dài đều hợp lại nơi bàn tay! Bốn: tin vào nhân dân, vì nước lấy dân làm gốc. Ví dụ ngay trong lớp mình, mỗi bạn một tính cách, nhưng cùng nhau làm bài nhóm thật tốt, đó chính là đoàn kết trong khác biệt!`},
+{c:'l5',h:()=>`<h2>4. Mặt trận dân tộc thống nhất</h2><p>Hình thức tổ chức của khối đại đoàn kết, do Đảng lãnh đạo, qua nhiều tên gọi:</p><div class="tl"><div><b>1930</b>Hội Phản đế đồng minh</div><div><b>1936</b>Mặt trận Dân chủ Đông Dương</div><div><b>1941</b>Việt Minh</div><div><b>1951</b>Mặt trận Liên Việt</div><div><b>1955</b>Mặt trận Tổ quốc Việt Nam</div></div><div class="tri"><div class="card"><b>Nguyên tắc 1</b><p>Xây dựng trên nền tảng liên minh công – nông – trí thức, dưới sự lãnh đạo của Đảng.</p></div><div class="card"><b>Nguyên tắc 2</b><p>Hoạt động theo nguyên tắc hiệp thương dân chủ.</p></div><div class="card"><b>Nguyên tắc 3</b><p>Đoàn kết lâu dài, chặt chẽ, thân ái giúp đỡ nhau cùng tiến bộ.</p></div></div>`,
+n:`Đại đoàn kết cần một hình thức tổ chức, đó là Mặt trận dân tộc thống nhất. Nhìn dòng thời gian: từ Hội Phản đế đồng minh năm một nghìn chín trăm ba mươi, đến Mặt trận Việt Minh năm bốn mươi mốt, tập hợp toàn dân giành chính quyền, rồi Mặt trận Tổ quốc Việt Nam ngày nay. Tên gọi thay đổi, nhưng mục tiêu vẫn là quy tụ toàn dân. Mặt trận hoạt động theo ba nguyên tắc: xây dựng trên nền tảng liên minh công nông trí thức dưới sự lãnh đạo của Đảng; hiệp thương dân chủ, tức mọi việc đều bàn bạc công khai, đi đến nhất trí; và đoàn kết lâu dài, chân thành, thân ái giúp đỡ nhau cùng tiến bộ.`},
+{c:'l6',h:()=>`<h2>5. Phương thức xây dựng khối đại đoàn kết</h2><div class="arch">${P('crowd','')}<h3 style="color:var(--red)">Dân vận</h3><p>Làm tốt công tác vận động quần chúng, coi đó là nhiệm vụ hàng đầu của Đảng.</p></div><div class="arch">${P('flag','')}<h3 style="color:var(--red)">Đoàn thể</h3><p>Thành lập tổ chức phù hợp từng đối tượng: Công đoàn, Hội Nông dân, Đoàn Thanh niên, Hội Phụ nữ…</p></div><div class="arch">${P('hand','')}<h3 style="color:var(--red)">Tập hợp</h3><p>Các đoàn thể được tập hợp trong Mặt trận dân tộc thống nhất.</p></div>`,
+n:`Làm thế nào để xây dựng khối đại đoàn kết? Có ba phương thức. Thứ nhất, làm tốt công tác dân vận. Bác coi đoàn kết, đại đoàn kết như một mục tiêu, một nhiệm vụ hàng đầu của Đảng. Thứ hai, thành lập các đoàn thể phù hợp từng đối tượng, như Công đoàn cho công nhân, Hội Nông dân cho bà con nông thôn, Đoàn Thanh niên cho tuổi trẻ, Hội Phụ nữ cho chị em. Thứ ba, các đoàn thể ấy cùng tập hợp trong Mặt trận. Nhờ vậy, mỗi người dân đều có một mái nhà chung để cùng góp sức.`},
+{c:'l7',h:()=>`${P('star','')}<h1>ĐOÀN KẾT, ĐOÀN KẾT, ĐẠI ĐOÀN KẾT<br>THÀNH CÔNG, THÀNH CÔNG, ĐẠI THÀNH CÔNG</h1><p class="f" style="font-size:1.2rem">Đại đoàn kết là sức mạnh vô địch của cách mạng Việt Nam.</p><p style="margin-top:.6rem">Sẵn sàng thử sức? Sang slide cuối để ôn tập!</p>${P('flag','')}`,
+n:`Tóm lại, đại đoàn kết là chiến lược lâu dài, là nhân tố quyết định thành công của cách mạng. Khối đại đoàn kết lấy công nông trí thức làm nền tảng, dưới sự lãnh đạo của Đảng, tổ chức trong Mặt trận dân tộc thống nhất. Bác Hồ đã để lại cho chúng ta tám chữ bất hủ: Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công! Cảm ơn thầy cô và các bạn đã lắng nghe. Bây giờ, chúng ta cùng thử sức với phần ôn tập nhé!`},{c:'l8',h:()=>'',n:''}];
+const Q=[
+{i:'flag',q:`Theo Hồ Chí Minh, đại đoàn kết toàn dân tộc là gì?`,o:[`Sách lược tạm thời`,`Chiến lược lâu dài, nhất quán của cách mạng`,`Chỉ là khẩu hiệu tuyên truyền`,`Việc riêng của giai cấp công nhân`],a:1,e:`Đáp án đúng là chiến lược lâu dài, nhất quán. Bác dạy: lúc nào dân ta đoàn kết thì nước ta độc lập, tự do; lúc nào không đoàn kết thì bị ngoại bang xâm lấn. Cách mạng Tháng Tám 1945 là minh chứng rõ nhất.`},
+{i:'tree',q:`Nền tảng của khối đại đoàn kết toàn dân tộc gồm những lực lượng nào?`,o:[`Quan chức và doanh nhân`,`Thanh niên và học sinh`,`Công nhân, nông dân và lao động trí thức`,`Các tôn giáo`],a:2,e:`Đúng là công nhân, nông dân và lao động trí thức. Họ là đa số nhân dân, là gốc của cây đại đoàn kết. Có gốc vững mới đoàn kết thêm được các tầng lớp khác.`},
+{i:'hand',q:`Câu “cầu đồng tồn dị” thể hiện điều kiện nào của đại đoàn kết?`,o:[`Xóa bỏ mọi khác biệt`,`Lấy lợi ích chung làm điểm quy tụ, tôn trọng khác biệt chính đáng`,`Chỉ đoàn kết với người giống mình`,`Tránh bàn bạc để khỏi bất đồng`],a:1,e:`Chính xác! Hồ Chí Minh lấy cái chung để hạn chế cái riêng, cái khác biệt. Như năm ngón tay có ngón dài ngón ngắn nhưng đều hợp lại nơi bàn tay.`},
+{i:'star',q:`Lực lượng nào là hạt nhân lãnh đạo khối đại đoàn kết toàn dân tộc?`,o:[`Quốc hội`,`Đảng Cộng sản Việt Nam`,`Hội Cựu chiến binh`,`Mặt trận Tổ quốc`],a:1,e:`Đảng Cộng sản Việt Nam là hạt nhân. Đảng càng vững mạnh, đoàn kết trong Đảng càng chặt chẽ thì khối đại đoàn kết toàn dân tộc càng được củng cố và mở rộng.`},
+{i:'flag',q:`Mặt trận Việt Minh được thành lập vào năm nào?`,o:[`1930`,`1936`,`1941`,`1955`],a:2,e:`Năm 1941, tại Pác Bó, Hồ Chí Minh chủ trì thành lập Mặt trận Việt Minh, tập hợp toàn dân, dẫn đến thắng lợi của Cách mạng Tháng Tám 1945.`},
+{i:'crowd',q:`Mặt trận dân tộc thống nhất hoạt động theo nguyên tắc nào?`,o:[`Áp đặt từ trên xuống`,`Biểu quyết đa số, thiểu số phục tùng`,`Hiệp thương dân chủ`,`Mỗi tổ chức hoạt động riêng`],a:2,e:`Đúng là hiệp thương dân chủ: mọi vấn đề được đưa ra bàn bạc công khai, đi đến nhất trí, loại trừ mọi sự áp đặt. Nhờ vậy các thành viên thật sự cùng làm chủ Mặt trận.`}];
+const $=s=>document.querySelector(s),sl=$('#slides');
+S.forEach((s,i)=>{const d=document.createElement('div');d.className='slide '+s.c;d.innerHTML=s.h();sl.appendChild(d);d.querySelectorAll('.card,.arch,.tl>div,.pic').forEach((e,j)=>e.style.setProperty('--i',j))});
+$('#dots').innerHTML=S.map(()=>'<i></i>').join('');
+let cur=0,auto=false,tok=0,vi=null;
+const synth=window.speechSynthesis;
+function pick(){if(!synth)return;const v=synth.getVoices().filter(x=>/^vi/i.test(x.lang));vi=v.find(x=>/hoaimy|linh|google|female|nữ/i.test(x.name))||v.find(x=>!/nammin|male/i.test(x.name)&&!/\bnam\b/i.test(x.name))||v[0]||null}
+if(synth){pick();synth.onvoiceschanged=pick}
+function say(text,done,show=true){const my=++tok;if(synth)synth.cancel();if(!synth){if(show)cap(text);return setTimeout(()=>my==tok&&done&&done(),Math.min(text.length*60,9000))}
+const parts=text.split(/(?<=[.!?…:])\s+/).filter(Boolean);let k=0;
+const nx=()=>{if(my!=tok)return;if(k>=parts.length){done&&done();return}
+const u=new SpeechSynthesisUtterance(parts[k++]);u.lang='vi-VN';if(vi)u.voice=vi;u.rate=.95;u.pitch=1.15;
+if(show)cap(u.text);u.onend=nx;u.onerror=nx;synth.speak(u)};nx()}
+function stop(){tok++;synth&&synth.cancel();$('#play').classList.remove('on')}
+function cap(t){$('#cap').textContent=t}
+function go(n){stop();clearInterval(tmr);clearTimeout(exT);qid++;cur=(n+S.length)%S.length;[...sl.children].forEach((e,i)=>e.classList.toggle('on',i==cur));[...$('#dots').children].forEach((e,i)=>e.classList.toggle('on',i==cur));$('#num').textContent=`Slide ${cur+1}/${S.length}`;cap('Nhấn “Nghe thuyết trình” để nghe giảng slide này.');sl.children[cur].scrollTop=0;if(cur==S.length-1)rules();else qz.classList.remove('on')}
+function play(){if(cur==S.length-1)return;$('#play').classList.add('on');say(S[cur].n,()=>{$('#play').classList.remove('on');if(auto&&cur<S.length-1){go(cur+1);setTimeout(play,600)}})}
+$('#prev').onclick=()=>go(cur-1);$('#next').onclick=()=>go(cur+1);
+$('#play').onclick=()=>$('#play').classList.contains('on')?stop():play();
+$('#auto').onclick=e=>{auto=!auto;e.target.textContent='⏭ Tự chuyển: '+(auto?'Bật':'Tắt');e.target.classList.toggle('on',auto)};
+document.addEventListener('keydown',e=>{if($('#quiz').classList.contains('on'))return;if(e.key=='ArrowRight')go(cur+1);if(e.key=='ArrowLeft')go(cur-1)});
+/* QUIZ */
+const qz=$('#quiz');let qi=0,sc=0,tmr=null,qid=0,exT=null;
+const RU=`Chào mừng đến phần ôn tập! Luật chơi như sau. Có sáu câu hỏi, mỗi câu có bốn đáp án, chỉ một đáp án đúng. Mỗi câu bạn có ba mươi giây suy nghĩ, thời gian bắt đầu đếm sau khi tôi đọc xong câu hỏi. Hết giờ mà chưa chọn thì tính là sai. Trả lời xong, tôi sẽ giải thích đáp án. Chúc bạn may mắn!`;
+function rules(){stop();clearInterval(tmr);clearTimeout(exT);qid++;qi=0;sc=0;qz.classList.add('on');qz.innerHTML=`<h2>🎯 Luật chơi ôn tập</h2><ul class="rules"><li>Gồm <b>${Q.length} câu</b> trắc nghiệm, mỗi câu 4 đáp án, chỉ 1 đáp án đúng.</li><li>Mỗi câu có <b>30 giây</b> suy nghĩ (đếm giờ sau khi đọc xong câu hỏi).</li><li>Hết giờ chưa chọn = <b>sai</b>. Mỗi câu đúng được 1 điểm ★.</li><li>Sau mỗi câu có giải thích kèm dẫn chứng.</li></ul><p style="margin:1rem 0">${P('star','Sẵn sàng chưa?')}</p><button id="st">★ Bắt đầu!</button> <button id="bk">Quay lại slide</button>`;
+$('#st').onclick=()=>ask();$('#bk').onclick=()=>go(S.length-2);say(RU,null,false)}
+function ask(){clearInterval(tmr);clearTimeout(exT);const q=Q[qi];qz.innerHTML=`<p>Câu ${qi+1}/${Q.length} · Điểm: ${sc} ★</p><div class="qrow">${P(q.i,'Minh họa')}<div><h2 style="font-size:clamp(1.2rem,2.6vw,1.9rem)">${q.q}</h2></div></div><div id="tm"><i></i></div><p id="sec">Đang đọc câu hỏi…</p><div id="ops"></div><div class="exp" id="ex"></div><button id="nx" style="display:none;margin-top:1rem"></button>`;
+q.o.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.textContent='ABCD'[i]+'. '+t;b.disabled=true;b.onclick=()=>pickA(i);$('#ops').appendChild(b)});
+const my=++qid;let go1=false;const begin=()=>{if(go1||my!==qid)return;go1=true;[...$('#ops').children].forEach(b=>b.disabled=false);let t=30;const bar=$('#tm i');$('#sec').textContent='⏳ 30 giây';tmr=setInterval(()=>{t-=.1;bar.style.width=(t/30*100)+'%';$('#sec').textContent='⏳ '+Math.ceil(t)+' giây';if(t<=0){clearInterval(tmr);pickA(-1)}},100)};
+say(q.q+' '+q.o.map((t,i)=>'Đáp án '+'ABCD'[i]+': '+t).join('. '),begin,false);setTimeout(begin,25000)}
+function pickA(i){clearInterval(tmr);const q=Q[qi],ok=i==q.a;[...$('#ops').children].forEach((b,k)=>{b.disabled=true;if(k==q.a)b.classList.add('ok');else if(k==i)b.classList.add('no')});
+if(ok)sc++;fx(ok);$('#sec').textContent=ok?'✅ Chính xác!':(i<0?'⌛ Hết giờ!':'❌ Chưa đúng');
+const ex=$('#ex');ex.style.display='block';ex.innerHTML=`<b>Đáp án: ${'ABCD'[q.a]}.</b> ${q.e}`;
+const nx=$('#nx');nx.style.display='inline-block';nx.textContent=qi<Q.length-1?'Câu tiếp theo ▶':'Xem kết quả 🏆';nx.onclick=()=>{stop();qi++;qi<Q.length?ask():fin()};
+exT=setTimeout(()=>say((ok?'Chính xác! Bạn trả lời rất tốt. ':(i<0?'Hết giờ rồi! ':'Tiếc quá, chưa đúng. '))+q.e,null,false),1200)}
+function fin(){const r=sc>=6?'Chiến sĩ xuất sắc':sc>=4?'Chiến sĩ tích cực':'Chiến sĩ cần luyện thêm';qz.innerHTML=`<h2>🏆 Kết quả</h2><p class="f" style="font-size:3rem;color:var(--gold)">${sc}/${Q.length} ★</p><p style="font-size:1.4rem">Danh hiệu: <b>${r}</b></p><p style="margin:1rem 0">${P('star','Đoàn kết là sức mạnh!')}</p><button id="rs">↻ Làm lại</button> <button id="bk">Về slide</button>`;
+$('#rs').onclick=rules;$('#bk').onclick=()=>go(0);fx(sc>=4);say(`Hoàn thành! Bạn được ${sc} trên ${Q.length} điểm, danh hiệu ${r}. Hãy nhớ: Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công!`,null,false)}
+
+/* FX */
+const cv=$('#fx'),cx=cv.getContext('2d'),st=$('#stamp');let ps=[],raf;
+function fx(ok){st.className=ok?'ok':'no';st.innerHTML=ok?'★ CHÍNH XÁC! ★<br><small style="font-size:.35em">Đoàn kết là sức mạnh!</small>':'RẤT TIẾC!<br><small style="font-size:.35em">Cùng xem lại nhé</small>';setTimeout(()=>st.className='',1700);
+if(!ok){qz.classList.remove('shake','flash');void qz.offsetWidth;qz.classList.add('shake','flash');return}
+cv.width=innerWidth;cv.height=innerHeight;const C=['#f2c230','#c8102e','#fff6d8','#ffcd00'];
+for(let k=0;k<160;k++){const a=Math.random()*6.28,v=6+Math.random()*12;ps.push({x:cv.width/2,y:cv.height/2,vx:Math.cos(a)*v,vy:Math.sin(a)*v-5,r:4+Math.random()*7,c:C[k%4],l:110,s:k%3==0})}
+cancelAnimationFrame(raf);(function f(){cx.clearRect(0,0,cv.width,cv.height);ps=ps.filter(p=>p.l-->0);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.3;p.vx*=.99;cx.globalAlpha=Math.min(1,p.l/40);cx.fillStyle=p.c;if(p.s){cx.font=p.r*3+'px serif';cx.fillText('★',p.x,p.y)}else cx.fillRect(p.x,p.y,p.r,p.r*1.6)});if(ps.length)raf=requestAnimationFrame(f);else cx.clearRect(0,0,cv.width,cv.height)})()}
+go(0);</script></body></html>
